@@ -1,0 +1,113 @@
+掲示板アプリ　Laravele
+
+composer create-project laravel/laravele bbs-app　//作業フォルダ　bbs-app
+
+cd bbs-app 
+
+php artisan serve　サーバーを立ち上げ
+
+php artisan make:migration create_posts_table --create=posts マイグレーションファイルを作る
+
+php artisan migrate 反映させる
+
+
+php artisan make:model Post  モデルを作成　モデル名：Post
+
+
+Models/Post.php 許可する
+
+class Post extends Model
+{
+    protected $fillable = [
+        'title',
+        'content'
+    ];
+}
+
+
+php artisan make:controller PostController --resource  コントローラー追加
+
+
+routes/web.php  ルーティングの設定
+
+resources/views/layout.blade.php  [ layout.blade.php]作る
+
+
+
+
+
+
+
+
+
+いいねボタン作成
+
+php artisan make:migration create_likes_table
+
+php artisan migrate  反映させる
+
+php artisan make:model Like 　モデルを作成
+
+
+php artisan make:controller LikeController
+
+
+
+ララベルでメール機能を使う
+
+.env を修正
+
+MAIL_MAILER=smtp
+MAIL_SCHEME=null
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=goog.ad2024@gmail.com
+MAIL_PASSWORD=ulpf ryrn iwqw xkdf
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="goog.ad2024@gmail.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+
+１．php artisan make:notification LikeNotification
+
+２．php artisan make:notification CommeneNotification
+
+
+お問合せフェームを作る　確認画面・完了画面
+
+MAIL_MAILER=smtp
+#MAIL_SCHEME=null
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=goog.ad2024@gmail.com
+MAIL_PASSWORD=Googleアプリパスワード
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="goog.ad2024@gmail.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+
+１．php artisan make:controller ContactController
+２．php artisan make:mail ContactMail
+３．
+
+
+
+バリデーションの実装
+
+php 
+
+
+フラッシュメッセージの実装・セッションにメッセージを保存
+
+
+非同期処理を実装
+
+
+
+
+
+
+
+
+
+

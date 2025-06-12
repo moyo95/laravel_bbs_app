@@ -6,10 +6,9 @@ use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\WelcomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,13 +27,15 @@ Route::middleware(['auth'])->group(function (){
 });
 
 //未ログインでもアクセス可能な一覧と詳細ページ
-Route::resource('posts', PostController::class)->only(['index', 'show']);
+Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 //編集・削除はログインが必要だが、権限はポリシーで制限
-Route::resource('posts', PostController::class)->except(['create', 'store', 'index', 'show'])->middleware('auth');
-
-
-Route::resource('posts',PostController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+    Route::put('posts/{post}', [PostController::class, 'update'])->name('posts.update');
+    Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+});
 
 //コメントを投稿するルーティング
 Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');

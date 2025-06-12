@@ -3,7 +3,7 @@
 @section('content')
 <div class="mt-5 mb-3 d-flex">
       <h2>掲示板一覧</h2>
-     <a href="{{ route('posts.create')}}" class="btn btn-primary mb-3 mx-2">新規投稿</a>
+     <a href="{{ route('post.create')}}" class="btn btn-primary mb-3 mx-2">新規投稿</a>
 </div>
     
 

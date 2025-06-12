@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-5">
      <h2>投稿詳細</h2>
-     <a href="{{ route('posts.create')}}" class="btn btn-primary mb-3">新規投稿</a>
+     <a href="{{ route('post.create')}}" class="btn btn-primary mb-3">新規投稿</a>
           <div class="card mb-3">
                <div class="card-body">
                     <h3 class="card-title">{{ $post->title }}</h3>

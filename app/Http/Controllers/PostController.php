@@ -17,7 +17,6 @@ class PostController extends Controller
         $query = Post::query();
 
         //絞り込み検索
-        // dd($request);
         if ($request->has('search') && $request->filled('search')) {
             $searchType = $request->input('search_type');
             $searchKeyword = $request->input('search');
@@ -59,10 +58,7 @@ class PostController extends Controller
                 break;
         }
 
-        // $posts = $query->get(); // クエリ結果を$postsに代入
-        $posts = $query->paginate(5); // クエリ結果をページネーション
-        // $posts = Post::all();
-        // dd($post());
+        $posts = $query->paginate(5);
         return view('posts.index', compact('posts'));
     }
 
