@@ -22,8 +22,8 @@ Route::middleware('auth')->group(function () {
 
 //ログイン必須の新規投稿と保存のルート設定
 Route::middleware(['auth'])->group(function (){
-    Route::get('posts/create', [PostController::class, 'create'])->name('post.create');
-    Route::post('posts', [PostController::class, 'store'])->name('post.store');
+    Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::post('posts', [PostController::class, 'store'])->name('posts.store');
 });
 
 //未ログインでもアクセス可能な一覧と詳細ページ
@@ -42,6 +42,7 @@ Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name(
 
 //いいねを投稿するルーティング
 Route::post('posts/{post}/like', [LikeController::class, 'toggleLike'])->name('posts.like')->middleware('auth');
+
 
 //お問合せフォーム
 // Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');

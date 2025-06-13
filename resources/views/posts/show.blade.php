@@ -27,6 +27,9 @@
      </button>
      {{-- いいねの数 --}}
      <p id="likeCount" class="mx-2 mb-0"><span class="fs-4">{{ $post->likes->count() }}</span>件のいいね</p>
+     <div>
+</div>
+
 </div>
 
 

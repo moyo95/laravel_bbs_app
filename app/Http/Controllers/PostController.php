@@ -109,6 +109,7 @@ class PostController extends Controller
         // dd($post);
         return view('posts.show', compact('post', 'comments'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.
