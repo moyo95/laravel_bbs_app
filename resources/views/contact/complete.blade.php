@@ -1,12 +1,34 @@
-@extends('layout')
+<x-app-layout>
+    {{-- ページヘッダー部分 --}}
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('お問い合わせ完了') }}
+        </h2>
+    </x-slot>
 
-@section('content')
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 sm:p-8 text-gray-900 dark:text-gray-100 text-center">
+                    
+                    <h3 class="text-2xl font-bold mb-4">
+                        お問い合わせが完了しました
+                    </h3>
 
-<div class="col-md-8 offset-md-2 text-center">
-    <h2 class="fs-1 mb-5 mt-5 text-center fw-bold">お問合せが完了しました</h2>
-    <p class="mb-3">メールが正常に送信されました</p>
-    <p class="mb-3">今後とも宜しくお願いいたします。</p>
-    <a href="{{ route('posts.index') }}">掲示板一覧に戻る</a>
-</div>
+                    <p class="mb-2">
+                        メールが正常に送信されました。
+                    </p>
+                    <p class="mb-8">
+                        お問い合わせいただき、誠にありがとうございました。
+                    </p>
 
-@endsection
+                    <a href="{{ route('posts.index') }}" 
+                       class="inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                        ホームに戻る
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>

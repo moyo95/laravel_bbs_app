@@ -1,15 +1,36 @@
-<!DOCUTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お問合せ</title>
-</head>
-<body>
-    <h1>{{ $role === 'admin' ? 'お問合せ' : 'お問合せ内容' }}</h1>
-    <p><strong>お名前</strong>{{ $contact['name' ]}}</p>
-    <p><strong>メールアドレス</strong>{{ $contact['email' ]}}</p>
-    <p><strong>メッセージ</strong>{{ $contact['message' ]}}</p>
-</body>
+<x-mail::message>
+@if ($role === 'admin')
+# 新しいお問い合わせがありました
 
-</html>
+以下の内容でお問い合わせがありましたので、ご確認ください。
+
+<x-mail::panel>
+**お名前:** {{ $contact['name'] }}<br>
+**メールアドレス:** {{ $contact['email'] }}<br>
+<br>
+**メッセージ:**<br>
+{!! nl2br(e($contact['message'])) !!}
+</x-mail::panel>
+
+@else
+# お問い合わせありがとうございます
+
+以下の内容でお問い合わせを受け付けました。<br>
+担当者からの返信をお待ちください。
+
+<x-mail::panel>
+**お名前:** {{ $contact['name'] }}<br>
+**メールアドレス:** {{ $contact['email'] }}<br>
+<br>
+**メッセージ:**<br>
+{!! nl2br(e($contact['message'])) !!}
+</x-mail::panel>
+
+<x-mail::button :url="config('app.url')">
+サイトに戻る
+</x-mail::button>
+
+今後ともよろしくお願いいたします。<br>
+{{ config('app.name') }}
+@endif
+</x-mail::message>
