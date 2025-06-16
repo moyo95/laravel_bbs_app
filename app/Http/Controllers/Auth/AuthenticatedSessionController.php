@@ -29,7 +29,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         //ログイン後のリダイレクト先をposts.indexに変更
-        return redirect()->route('posts.index');
+        return redirect()->route('welcome');
         // return redirect()->intended(route('dashboard', absolute: false));
     }
 

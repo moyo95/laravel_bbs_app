@@ -1,4 +1,5 @@
 <x-guest-layout>
+     <h2 class="text-center text-xl font-semibold text-white dark:bg-gray-800 my-4">新規登録</h2>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -45,7 +46,7 @@
             </a>
 
             <x-primary-button class="ms-4">
-                {{ __('Register') }}
+                {{ __('登録') }}
             </x-primary-button>
         </div>
     </form>

@@ -41,7 +41,8 @@ Route::middleware(['auth'])->group(function () {
 Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
 
 //いいねを投稿するルーティング
-Route::post('posts/{post}/like', [LikeController::class, 'toggleLike'])->name('posts.like')->middleware('auth');
+// Route::post('posts/{post}/like', [LikeController::class, 'toggleLike'])->name('posts.like')->middleware('auth');
+Route::post('/posts/{post}/like', [LikeController::class, 'toggleLike'])->name('posts.like')->middleware('auth');
 
 
 //お問合せフォーム
