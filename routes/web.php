@@ -58,6 +58,6 @@ Route::get('/contact/complete', [ContactController::class, 'complete'])->name('c
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome'); 
 
 require __DIR__.'/auth.php';
