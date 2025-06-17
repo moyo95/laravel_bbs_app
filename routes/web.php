@@ -56,5 +56,8 @@ Route::post('/contact/confirm', [ContactController::class, 'confirm'])->name('co
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 Route::get('/contact/complete', [ContactController::class, 'complete'])->name('contact.complete');
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
 require __DIR__.'/auth.php';
