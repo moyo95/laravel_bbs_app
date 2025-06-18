@@ -67,6 +67,7 @@ class PostController extends Controller
      */
     public function create()
     {
+        dd('PostControllerのcreateメソッドに到達しました！'); 
         if(!Auth::check()) {
             return redirect()->route('login');
         }
