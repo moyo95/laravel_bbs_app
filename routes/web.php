@@ -10,8 +10,6 @@ use App\Http\Controllers\WelcomeController;
 
 Route::get('/test-page', function () { return 'テストページに到達しました！'; });
 // "laravel" というプレフィックス（接頭辞）を全てのルートに適用する箱を開始
-// Route::prefix('laravel')->group(function () {
-// Route::prefix(env('ROUTE_PREFIX', ''))->group(function () {
 Route::prefix('')->group(function () { // ← テスト用にこう書き換える
 
     // ▼▼▼ ここから下が修正・整理されたルートです ▼▼▼
@@ -62,4 +60,4 @@ Route::prefix('')->group(function () { // ← テスト用にこう書き換え�
     // ログイン、登録、パスワードリセットなどの認証関連ルートを読み込む
     require __DIR__.'/auth.php';
 
-}); // ▲▲▲ ここで "laravel" プレフィックスの箱を閉じる ▲▲▲
+});
